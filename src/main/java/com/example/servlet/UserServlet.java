@@ -17,7 +17,7 @@ public class UserServlet extends HttpServlet {
             throws ServletException, IOException {
         UserDAO dao = new UserDAO();
         List<User> userList = dao.getAllUsers();
-        request.setAttribute("users", userList);
+        request.setAttribute("userList", userList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
     }
