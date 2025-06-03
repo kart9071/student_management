@@ -9,6 +9,6 @@
 
 
 ### Tasks
-1) Next step to make the login page with checking the right username and password.
-2) Make Users like Admin, Students.
+1) implement ajax call on getting the data from viewUsers.jsp.
+2) Update related to the users related info should be corrected.
 
