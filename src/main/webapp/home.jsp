@@ -73,7 +73,6 @@
     <div class="container">
         <h2>Welcome to SMS Dashboard</h2>
         <a href="register.jsp" class="btn">Register Student</a>
-        <a href="viewUsers.jsp" class="btn">View Students</a>
         <a href="login.jsp" class="btn">Login</a>
     </div>
 

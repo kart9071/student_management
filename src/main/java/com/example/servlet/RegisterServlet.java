@@ -18,16 +18,18 @@ public class RegisterServlet extends HttpServlet{
         String name=req.getParameter("name");
         String username=req.getParameter("username");
         String password=req.getParameter("password");
+        String role=req.getParameter("role");
         
         User user =new User();
         user.setName(name);
         user.setUsername(username);
         user.setPassword(password);
+        user.setRole(role);
 
         UserDAO dao=new UserDAO();
         dao.saveUser(user);
         resp.sendRedirect("success.jsp");
     }
 
-    
+
 }
