@@ -1,0 +1,19 @@
+-- CREATE TABLE students (
+--     student_id INT AUTO_INCREMENT PRIMARY KEY,
+--     user_id INT NOT NULL, 
+--     full_name VARCHAR(100) NOT NULL,
+--     dob DATE NOT NULL,
+--     gender ENUM('Male', 'Female', 'Other') DEFAULT 'Other',
+--     email VARCHAR(100) NOT NULL UNIQUE,
+--     phone VARCHAR(15),
+--     guardian_name VARCHAR(100) NOT NULL,
+--     guardian_relation VARCHAR(50) DEFAULT 'Parent',
+--     guardian_phone VARCHAR(15),
+--     guardian_email VARCHAR(100),
+--     address TEXT,
+--     photo_path VARCHAR(255),
+--     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+--     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+--     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
+-- );
+
