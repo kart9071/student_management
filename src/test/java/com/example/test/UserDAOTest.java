@@ -11,7 +11,7 @@ import com.example.model.User;
 
 public class UserDAOTest {
     @Test
-    public void testGetAllUsers() {
+    private void testGetAllUsers() {
         UserDAO userDAO = new UserDAO();
         List<User> users = userDAO.getAllUsers();
 
