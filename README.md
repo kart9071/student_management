@@ -9,6 +9,6 @@
 
 
 ### Tasks
-1) implement ajax call on getting the data from viewUsers.jsp.
-2) Update related to the users related info should be corrected.
+1) profile photo has been updated but every time the server restarts since the uploads directory in the tomcat server it is deleted.
+2) students can add the attendence of a particular date.
 
