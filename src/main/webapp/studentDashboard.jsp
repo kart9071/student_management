@@ -48,6 +48,8 @@
 <body>
 <header>
     <h1>Welcome, <%= user.getName() %> (Student)</h1>
+
+    <img src="uploads/<%= user.getPhotoFileName() %>" alt="Profile Photo" height="150"/>
 </header>
 
 <div class="container">

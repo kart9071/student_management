@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 public class RunSQLFileTest {
 
     @Test
-    public void testRunSQLFile() {
+    private void testRunSQLFile() {
         String jdbcURL = "jdbc:mysql://localhost:3306/studentsystem"; // your DB URL
         String username = "root";    // your DB username
         String password = "root";    // your DB password
