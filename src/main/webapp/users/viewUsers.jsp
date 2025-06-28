@@ -56,6 +56,7 @@
                     <th>Full Name</th>
                     <th>Username</th>
                     <th>Role</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,6 +69,11 @@
                     <td><%= user.getName() %></td>
                     <td><%= user.getUsername() %></td>
                     <td><%= user.getRole() %></td>
+                    <td>
+                        <a href="userDetails.jsp?userId=<%= user.getId() %>" class="btn btn-sm btn-info">
+                        View Details
+                        </a>
+                    </td>
                 </tr>
                 <%
                         }

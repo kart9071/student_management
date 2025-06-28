@@ -18,8 +18,8 @@
         .card {
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            width: 400px;        /* narrower, single column */
-            max-height: 90vh;    /* max height to allow vertical scroll */
+            width: 400px;
+            max-height: 90vh;
             overflow-y: auto;
             padding: 30px;
         }
@@ -53,7 +53,8 @@
             <select id="role" name="role" class="form-select" required>
                 <option value="" disabled selected>Select role</option>
                 <option value="student">Student</option>
-                <option value="admin">Admin</option>
+                <option value='teacher'>Teacher</option>
+                <%-- <option value="admin">Admin</option> --%>
             </select>
         </div>
 

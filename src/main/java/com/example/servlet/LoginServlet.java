@@ -30,6 +30,10 @@ public class LoginServlet extends HttpServlet{
         if("admin".equalsIgnoreCase(user.getRole())){
             res.sendRedirect("adminDashboard.jsp");
         }
+
+        else if("teacher".equalsIgnoreCase(user.getRole())){
+            res.sendRedirect("teacherDashboard.jsp");
+        }
         else{
             res.sendRedirect("studentDashboard.jsp");
         }

@@ -2,7 +2,7 @@
 <%@ page import="com.example.model.User" %>
 <%
     User user = (User) session.getAttribute("user");
-    if (user == null || !"student".equalsIgnoreCase(user.getRole())) {
+    if (user == null || !"teacher".equalsIgnoreCase(user.getRole())) {
         response.sendRedirect("login.jsp");
         return;
     }
@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Student Dashboard</title>
+    <title>Teacher Dashboard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -47,12 +47,12 @@
 </head>
 <body>
 <header>
-    <h1>Welcome, <%= user.getName() %> (Student)</h1>
+    <h1>Welcome, <%= user.getName() %> (Teacher)</h1>
     <img src="images/<%= user.getPhotoFileName() %>" alt="Profile Photo" height="150"/>
 </header>
 
 <div class="container">
-    <h2>Student Dashboard</h2>
+    <h2>Teacher Dashboard</h2>
     <p>You are successfully logged in.</p>
     <a href="logout.jsp" class="btn">Logout</a>
 </div>

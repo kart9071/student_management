@@ -22,7 +22,8 @@ import jakarta.servlet.http.Part;
                  maxRequestSize = 1024 * 1024 * 15)    // 15MB
 public class RegisterServlet extends HttpServlet {
 
-    private static final String UPLOAD_DIR = "uploads";
+    // ✅ Upload path outside Tomcat
+    private static final String UPLOAD_DIR = "D:/student-uploads";
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -55,18 +56,17 @@ public class RegisterServlet extends HttpServlet {
                 fileExt = submittedFileName.substring(i);
             }
 
-            photoFileName = UUID.randomUUID().toString() + fileExt;  // unique filename
+            // Unique file name
+            photoFileName = UUID.randomUUID().toString() + fileExt;
 
-            // Determine upload path
-            String appPath = req.getServletContext().getRealPath("");
-            String uploadPath = appPath + File.separator + UPLOAD_DIR;
-            File uploadDir = new File(uploadPath);
+            // Ensure upload directory exists
+            File uploadDir = new File(UPLOAD_DIR);
             if (!uploadDir.exists()) {
                 uploadDir.mkdirs();
             }
 
-            // Save file on disk
-            photoPart.write(uploadPath + File.separator + photoFileName);
+            // Save the file
+            photoPart.write(UPLOAD_DIR + File.separator + photoFileName);
         }
 
         // Create User object and set all fields

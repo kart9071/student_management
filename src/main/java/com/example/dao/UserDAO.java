@@ -67,7 +67,7 @@ public class UserDAO {
                 "guardian_name, guardian_relation, guardian_phone, guardian_email, address, photo_file_name) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = connectToDatabase();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, user.getName());
             stmt.setString(2, user.getUsername());
             stmt.setString(3, user.getPassword());
@@ -119,4 +119,68 @@ public class UserDAO {
         }
         return user;
     }
+
+    public List<User> getStudents() {
+        List<User> students = new ArrayList<>();
+        try (Connection conn = connectToDatabase()) {
+            String sql = "SELECT * FROM user WHERE role = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, "student");
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                User u = new User();
+                u.setId(rs.getInt("id"));
+                u.setName(rs.getString("name"));
+                u.setUsername(rs.getString("username"));
+                u.setPassword(rs.getString("password"));
+                u.setRole(rs.getString("role"));
+                u.setDob(rs.getString("dob"));
+                u.setGender(rs.getString("gender"));
+                u.setEmail(rs.getString("email"));
+                u.setPhone(rs.getString("phone"));
+                u.setGuardianName(rs.getString("guardian_name"));
+                u.setGuardianRelation(rs.getString("guardian_relation"));
+                u.setGuardianPhone(rs.getString("guardian_phone"));
+                u.setGuardianEmail(rs.getString("guardian_email"));
+                u.setAddress(rs.getString("address"));
+                u.setPhotoFileName(rs.getString("photo_file_name"));
+                students.add(u);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return students;
+    }
+
+    public User getUserById(int userId) {
+        User user = null;
+        try (Connection conn = connectToDatabase();
+                PreparedStatement stmt = conn.prepareStatement("SELECT * FROM user WHERE id = ?")) {
+
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                user = new User();
+                user.setId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setUsername(rs.getString("username"));
+                user.setDob(rs.getString("dob"));
+                user.setEmail(rs.getString("email"));
+                user.setGuardianName(rs.getString("guardian_name"));
+                user.setGuardianPhone(rs.getString("guardian_phone"));
+                user.setGuardianEmail(rs.getString("guardian_email"));
+                user.setGuardianRelation(rs.getString("guardian_relation"));
+                user.setAddress(rs.getString("address"));
+                user.setRole(rs.getString("role"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return user;
+    }
+
 }

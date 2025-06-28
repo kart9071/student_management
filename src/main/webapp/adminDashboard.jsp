@@ -52,6 +52,7 @@
 
 <div class="container">
     <h2>Admin Dashboard</h2>
+    <img src="images/<%= user.getPhotoFileName() %>" alt="Profile Photo" height="150"/>
     <a href="users/" class="btn">View All Students</a>
     <a href="register.jsp" class="btn">Register New Student</a>
     <a href="logout.jsp" class="btn">Logout</a>
